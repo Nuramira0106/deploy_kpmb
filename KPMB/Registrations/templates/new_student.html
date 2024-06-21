@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h2>STUDENT</h2>
+    <form action="new_student" method="post">
+        {%csrf_token %}
+        Student ID <input type="text" name="id"><br><br>
+        Name <input type="text" name="name"><br><br>
+        Address <input type="text" name="address"><br><br>
+        Phone <input type="text" name="phone"><br><br>
+        Course Code
+        <select name="c_course">
+            <option value="Choose">Choose one</option>
+            {% for data in allcourse %}
+                <option value={{data.code}}>{{data.code}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="SAVE"><br><br>
+    </form>
+    <br><br>
+    {{message}}
+    <br>
+    <a href="/KPMB/student/">Back</a>
+    
+</body>
+</html>
